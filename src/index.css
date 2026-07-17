@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Enable smooth scrolling safely across standard viewpoints */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  min-height: -webkit-fill-available; /* Hardens mobile viewport calculations */
+  background-color: #050505; /* Added to match Hero section and prevent white gaps on overflow */
+}
+
+body {
+  background-color: #050505; /* Changed from #0A0A0A to perfectly match Hero section */
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow-x: hidden; /* Prevent horizontal canvas breaking on narrow windows */
+}
+
+/* Hardened layout wrappers to prevent absolute/overflow components from clashing */
+.hero-containment-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto; 
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* NLE Console Custom Properties */
+.nle-panel {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.nle-panel:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
+}
