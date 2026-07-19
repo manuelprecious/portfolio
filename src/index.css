@@ -6,6 +6,15 @@ html {
   height: 100%;
   min-height: -webkit-fill-available; /* Hardens mobile viewport calculations */
   background-color: #050505; /* Added to match Hero section and prevent white gaps on overflow */
+  
+  /* --- ADD THESE 3 LINES TO HIDE THE SCROLLBAR --- */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -16,6 +25,15 @@ body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
   overflow-x: hidden; /* Prevent horizontal canvas breaking on narrow windows */
+  
+  /* --- ADD THESE 3 LINES TO HIDE THE SCROLLBAR --- */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Hardened layout wrappers to prevent absolute/overflow components from clashing */
