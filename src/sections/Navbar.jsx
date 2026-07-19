@@ -8,10 +8,9 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('#home');
 
   const navItems = [
-    { id: '01', name: 'Home', href: '#home' },
-    { id: '02', name: 'Projects', href: '#projects' },
-    { id: '03', name: 'Research', href: '#research' },
-    { id: '04', name: 'Contact', href: '#contact' }
+    { id: '01', name: 'Projects', href: '#projects' },
+    { id: '02', name: 'Research', href: '#research' },
+    { id: '03', name: 'Contact', href: '#contact' }
   ];
 
   const scrollToContact = () => {
@@ -69,7 +68,7 @@ export default function Navbar() {
     >
       <div className="px-6 py-4 max-w-7xl mx-auto flex justify-between items-center relative z-20">
         
-        {/* Logo - Icon + Text like Cursor */}
+        {/* Logo - Icon + Text (Links to #home) */}
         <a href="#home" className="flex items-center gap-3 select-none group">
           <img 
             src="/macsterlin.png" 
@@ -83,7 +82,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation (lg and up) */}
-        <nav className="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-zinc-400">
+        <nav className="hidden lg:flex items-center space-x-8 text-sm font-bold uppercase tracking-widest text-zinc-400">
           {navItems.map((item) => {
             const isActive = activeSection === item.href;
             return (
@@ -103,10 +102,10 @@ export default function Navbar() {
         <div className="flex items-center space-x-5">
           
           {/* Availability Badge (Visible on md and up) */}
-          <div className="hidden md:flex items-center gap-2.5 text-[10px] text-zinc-300 font-bold uppercase tracking-widest border border-zinc-800 bg-zinc-900/50 px-3.5 py-1.5 rounded-full shadow-sm">
-            <span className="relative flex h-2 w-2">
+          <div className="hidden md:flex items-center gap-2.5 text-xs text-zinc-300 font-bold uppercase tracking-widest border border-zinc-800 bg-zinc-900/50 px-3.5 py-1.5 rounded-full shadow-sm">
+            <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff9500]"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff9500]"></span>
             </span>
             Research Ongoing
           </div>
@@ -157,10 +156,10 @@ export default function Navbar() {
             </button>
 
             {/* Status Indicator inside menu drawer */}
-            <div className="mb-6 flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-xl font-mono text-[10px] tracking-wider text-zinc-300 font-bold uppercase select-none shadow-sm self-start">
-              <span className="relative flex h-2 w-2">
+            <div className="mb-6 flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-xl font-mono text-xs tracking-wider text-zinc-300 font-bold uppercase select-none shadow-sm self-start">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff9500]"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff9500]"></span>
               </span>
               Research Ongoing
             </div>
@@ -174,7 +173,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`py-4 px-5 rounded-xl font-mono text-base font-bold tracking-wide transition-all block w-full text-left ${
+                    className={`py-4 px-5 rounded-xl font-mono text-lg font-bold tracking-wide transition-all block w-full text-left ${
                       isActive
                         ? 'bg-zinc-900 text-white border-l-4 border-zinc-700'
                         : 'text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900/50'
@@ -191,7 +190,7 @@ export default function Navbar() {
             <div className="mt-auto w-full">
               <button 
                 onClick={scrollToContact}
-                className="w-full py-4 rounded-xl bg-white text-black font-mono text-base font-bold tracking-wide flex items-center justify-center gap-2 border border-white shadow-md shadow-white/10 hover:bg-zinc-200 transition-colors select-none cursor-pointer"
+                className="w-full py-4 rounded-xl bg-white text-black font-mono text-lg font-bold tracking-wide flex items-center justify-center gap-2 border border-white shadow-md shadow-white/10 hover:bg-zinc-200 transition-colors select-none cursor-pointer"
               >
                 Partner With Us
               </button>
