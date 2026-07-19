@@ -70,32 +70,31 @@ export default function App() {
   }, []);
 
   return (
-    // FIX 1: Added 'flex flex-col' to the root container
-    <div className="min-h-screen bg-[#0A0A0A] text-zinc-100 antialiased selection:bg-white selection:text-black lg:short:h-auto lg:h-screen lg:overflow-hidden relative flex flex-col">
+    <div className="min-h-screen bg-[#0A0A0A] text-zinc-100 antialiased selection:bg-white selection:text-black lg:short:h-auto lg:h-screen lg:overflow-hidden relative flex flex-col overflow-x-hidden">
       
       {/* 1. Minimal Navigation Header */}
       <Navbar />
 
-      {/* FIX 2: Changed 'h-full' to 'flex-1'. This makes it take exactly the remaining height after the Navbar */}
-      <main ref={containerRef} className="relative flex-1 overflow-y-auto scrollbar-none scroll-smooth">
+      {/* 2. Main scrollable area */}
+      <main ref={containerRef} className="relative flex-1 overflow-y-auto overflow-x-hidden scrollbar-none scroll-smooth">
         
         {/* 2. Hook section */}
-        <div id="hero" className="snap-section w-full h-full flex flex-col justify-center">
+        <div id="hero" className="snap-section w-full h-full flex flex-col justify-center overflow-x-hidden">
           <Hero />
         </div>
         
         {/* 3. Projects grid */}
-        <div id="portfolio-projects" className="snap-section w-full h-full">
+        <div id="portfolio-projects" className="snap-section w-full h-full overflow-x-hidden">
           <ProjectGrid />
         </div>
         
         {/* 4. Services */}
-        <div id="services" className="snap-section w-full h-full">
+        <div id="services" className="snap-section w-full h-full overflow-x-hidden">
           <Services />
         </div>
 
         {/* 5. Contact CTA */}
-        <div id="contact" className="snap-section w-full h-full">
+        <div id="contact" className="snap-section w-full h-full overflow-x-hidden">
           <Contact />
         </div>
 

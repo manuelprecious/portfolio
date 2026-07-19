@@ -5,12 +5,13 @@ import Button from '../components/Button';
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('#projects');
+  const [activeSection, setActiveSection] = useState('#home');
 
   const navItems = [
-    { id: '01', name: 'Projects', href: '#projects' },
-    { id: '02', name: 'Research', href: '#research' },
-    { id: '03', name: 'Contact', href: '#contact' }
+    { id: '01', name: 'Home', href: '#home' },
+    { id: '02', name: 'Projects', href: '#projects' },
+    { id: '03', name: 'Research', href: '#research' },
+    { id: '04', name: 'Contact', href: '#contact' }
   ];
 
   const scrollToContact = () => {
@@ -69,7 +70,7 @@ export default function Navbar() {
       <div className="px-6 py-4 max-w-7xl mx-auto flex justify-between items-center relative z-20">
         
         {/* Logo - Icon + Text like Cursor */}
-        <a href="/" className="flex items-center gap-3 select-none group">
+        <a href="#home" className="flex items-center gap-3 select-none group">
           <img 
             src="/macsterlin.png" 
             alt="" 
