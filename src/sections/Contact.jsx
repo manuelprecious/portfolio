@@ -57,29 +57,34 @@ export default function Contact() {
   };
 
   return (
-    // Root container: Full height, matching the site's core #050505 background
-    <div className="w-full h-full flex flex-col bg-[#050505] pt-12 lg:pt-20 relative">
+    <div className="w-full min-h-screen flex flex-col bg-[#050505] relative font-sans selection:bg-zinc-700 selection:text-white">
       
-      {/* Subtle Grid Overlay (Matching other sections) */}
+      {/* Top Spacing for Fixed Nav */}
+      <div className="h-28 md:h-32 shrink-0" />
+      
+      {/* Subtle Grid Overlay */}
       <div 
-        className="absolute inset-x-0 top-0 h-[40vh] z-0 pointer-events-none select-none opacity-[0.25]"
+        className="absolute inset-0 z-0 pointer-events-none select-none opacity-[0.15]"
         style={{
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          maskImage: 'radial-gradient(circle at center, rgba(255,255,255,1) 20%, rgba(255,255,255,0.4) 60%, transparent 85%)',
+          WebkitMaskImage: 'radial-gradient(circle at center, rgba(255,255,255,1) 20%, rgba(255,255,255,0.4) 60%, transparent 85%)'
         }}
       >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 
+      {/* Ambient Glow Bleed */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-[radial-gradient(circle,rgba(255,149,0,0.25)_0%,rgba(255,149,0,0.1)_65%,transparent_100%)] blur-[140px] z-0 pointer-events-none select-none" />
+
       {/* Content Wrapper */}
-      <div className="flex-1 flex flex-col justify-end w-full max-w-[1800px] mx-auto z-10 px-6 md:px-12 lg:px-16 pb-16 lg:pb-24 relative">
+      <div className="max-w-[1700px] mx-auto px-4 md:px-8 w-full flex flex-col gap-3 md:gap-4 relative z-10 flex-1 pb-6 md:pb-8">
         
         {/* Balanced Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-24 items-start w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-start w-full">
           
           {/* Left Side: Profile Photo */}
-          <div className="lg:col-span-5 w-full hidden lg:block relative">
-            <div className="w-full aspect-[3/4] bg-[#0a0a0a] border border-zinc-800 overflow-hidden rounded-2xl shadow-2xl relative group">
+          <div className="lg:col-span-4 w-full hidden lg:block relative">
+            <div className="w-full aspect-[3/4] bg-[#080808] border border-zinc-800 overflow-hidden rounded-2xl shadow-lg relative group">
               <img 
                 src={PLACEHOLDER_IMG} 
                 alt="Profile" 
@@ -89,45 +94,45 @@ export default function Contact() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/60 via-transparent to-transparent pointer-events-none" />
               
               {/* Decorative corner accents */}
-              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white/20 rounded-tl-lg" />
-              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white/20 rounded-br-lg" />
+              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#ff9500]/40 rounded-tl-lg" />
+              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#ff9500]/40 rounded-br-lg" />
             </div>
           </div>
 
           {/* Right Side: Identity + Form */}
-          <div className="lg:col-span-7 flex flex-col w-full">
+          <div className="lg:col-span-8 flex flex-col w-full">
             
             {/* Identity Text */}
-            <div className="space-y-6 mb-10">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white leading-[0.95]">
+            <div className="mb-8 md:mb-10 w-full">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight">
                 Start a <br />
-                <span className="text-zinc-600">conversation.</span>
+                <span className="text-[#ff9500]">conversation.</span>
               </h2>
-              <p className="text-zinc-400 font-medium text-base lg:text-lg leading-relaxed max-w-2xl">
+              <p className="text-zinc-400 mt-4 md:mt-5 tracking-[0.25em] text-base font-normal max-w-2xl">
                 We're building products shaped by research, engineering, and long-term thinking. If our interests overlap, we'd love to hear from you.
               </p>
             </div>
 
             {/* Form Container - NLE Console Styling */}
-            <div className="w-full bg-[#0d0d0d] border border-zinc-800 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.6)] overflow-hidden">
+            <div className="w-full bg-[#0d0d0d] border border-zinc-800 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.5)] p-2 sm:p-3 lg:p-4">
               
               {/* Top Panel Bar */}
-              <div className="flex items-center justify-between px-6 py-4 bg-[#121212] border-b border-zinc-800 shrink-0 select-none">
+              <div className="flex items-center justify-between px-4 py-3 bg-[#121212] border-b border-zinc-800 rounded-t-2xl shrink-0 select-none">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase font-bold">
+                  <span className="text-sm font-normal text-zinc-400 uppercase tracking-wider">
                     System Status:
                   </span>
                   <span 
-                    className={`text-[10px] font-mono font-black uppercase px-2.5 py-1 rounded transition-colors duration-300 ${
-                      status === 'SUCCESS' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
-                      status === 'ERROR' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' :
-                      status === 'SENDING' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20 animate-pulse' :
-                      'bg-zinc-800/50 text-zinc-400 border border-zinc-700'
+                    className={`text-sm font-normal uppercase px-3 py-1 rounded-lg transition-colors duration-300 border ${
+                      status === 'SUCCESS' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                      status === 'ERROR' ? 'bg-rose-500/10 text-rose-400 border-rose-500/20' :
+                      status === 'SENDING' ? 'bg-[#ff9500]/10 text-[#ff9500] border-[#ff9500]/20 animate-pulse' :
+                      'bg-zinc-800/50 text-[#ff9500] border-[#ff9500]/30'
                     }`}
                   >
                     {status === 'IDLE' ? '• Ready' : `• ${status}`}
@@ -136,12 +141,12 @@ export default function Contact() {
               </div>
 
               {/* Form Workspace */}
-              <form ref={formRef} onSubmit={handleDispatch} className="p-6 md:p-8 flex flex-col gap-6 text-left">
+              <form ref={formRef} onSubmit={handleDispatch} className="p-4 lg:p-5 flex flex-col gap-5 text-left bg-[#080808] rounded-b-2xl border border-t-0 border-zinc-800">
                 
                 {/* Field Row 1: Full Name & Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2.5">
-                    <label className="font-mono text-[10px] tracking-[0.15em] text-zinc-500 font-bold uppercase">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-base font-normal text-[#ff9500] tracking-wider uppercase">
                       Full Name
                     </label>
                     <input 
@@ -152,12 +157,12 @@ export default function Contact() {
                       required
                       disabled={status === 'SENDING'}
                       placeholder="Enter your name"
-                      className="w-full px-4 py-3.5 font-mono text-sm rounded-xl border border-zinc-800 bg-[#0a0a0a] text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 focus:bg-[#121212] transition-all duration-150 disabled:opacity-50"
+                      className="w-full px-4 py-3.5 text-base font-normal rounded-xl border border-zinc-800 bg-[#121212] text-white placeholder:text-zinc-500 focus:outline-none focus:border-[#ff9500]/50 focus:bg-[#1a1a1a] transition-all duration-150 disabled:opacity-50"
                     />
                   </div>
 
-                  <div className="flex flex-col gap-2.5">
-                    <label className="font-mono text-[10px] tracking-[0.15em] text-zinc-500 font-bold uppercase">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-base font-normal text-[#ff9500] tracking-wider uppercase">
                       Email Address
                     </label>
                     <input 
@@ -168,14 +173,14 @@ export default function Contact() {
                       required
                       disabled={status === 'SENDING'}
                       placeholder="name@example.com"
-                      className="w-full px-4 py-3.5 font-mono text-sm rounded-xl border border-zinc-800 bg-[#0a0a0a] text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 focus:bg-[#121212] transition-all duration-150 disabled:opacity-50"
+                      className="w-full px-4 py-3.5 text-base font-normal rounded-xl border border-zinc-800 bg-[#121212] text-white placeholder:text-zinc-500 focus:outline-none focus:border-[#ff9500]/50 focus:bg-[#1a1a1a] transition-all duration-150 disabled:opacity-50"
                     />
                   </div>
                 </div>
 
                 {/* Field Row 2: Message */}
-                <div className="flex flex-col gap-2.5">
-                  <label className="font-mono text-[10px] tracking-[0.15em] text-zinc-500 font-bold uppercase">
+                <div className="flex flex-col gap-2">
+                  <label className="text-base font-normal text-[#ff9500] tracking-wider uppercase">
                     Your Message
                   </label>
                   <textarea 
@@ -186,28 +191,28 @@ export default function Contact() {
                     required
                     disabled={status === 'SENDING'}
                     placeholder="Type your message here..."
-                    className="w-full px-4 py-3.5 font-mono text-sm rounded-xl border border-zinc-800 bg-[#0a0a0a] text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 focus:bg-[#121212] transition-all duration-150 disabled:opacity-50 resize-none min-h-[140px]"
+                    className="w-full px-4 py-3.5 text-base font-normal rounded-xl border border-zinc-800 bg-[#121212] text-white placeholder:text-zinc-500 focus:outline-none focus:border-[#ff9500]/50 focus:bg-[#1a1a1a] transition-all duration-150 disabled:opacity-50 resize-none min-h-[140px]"
                   />
                 </div>
 
                 {/* Bottom Actions and Status Logs */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6 pt-6 border-t border-zinc-800 mt-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-zinc-800 mt-2">
                   
                   {/* Dynamic Status Log */}
                   <div 
-                    className={`font-mono text-xs tracking-wide font-medium flex items-center gap-2.5 transition-colors duration-200 ${
+                    className={`text-base font-normal flex items-center gap-3 transition-colors duration-200 ${
                       status === 'SUCCESS' ? 'text-emerald-400' :
                       status === 'ERROR' ? 'text-rose-400' :
-                      status === 'SENDING' ? 'text-amber-400' :
-                      'text-zinc-500'
+                      status === 'SENDING' ? 'text-[#ff9500]' :
+                      'text-[#ff9500]'
                     }`}
                   >
                     <span 
                       className={`w-2 h-2 rounded-full block transition-colors duration-200 ${
                         status === 'SUCCESS' ? 'bg-emerald-500' :
                         status === 'ERROR' ? 'bg-rose-500' :
-                        status === 'SENDING' ? 'bg-amber-500 animate-pulse' :
-                        'bg-zinc-700'
+                        status === 'SENDING' ? 'bg-[#ff9500] animate-pulse' :
+                        'bg-[#ff9500]'
                       }`} 
                     />
                     {status === 'IDLE' && 'Ready to transmit.'}
@@ -220,7 +225,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === 'SENDING'}
-                    className="px-6 py-3.5 rounded-xl bg-white text-black hover:bg-zinc-200 font-mono text-xs tracking-wider uppercase font-black transition-all duration-150 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group shrink-0"
+                    className="px-6 py-3.5 rounded-xl bg-white text-black text-base font-normal tracking-wider uppercase hover:bg-[#ff9500] transition-all duration-150 flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,149,0,0.4)] disabled:opacity-50 disabled:cursor-not-allowed shrink-0 group"
                   >
                     {status === 'SENDING' ? 'Sending...' : 'Send Message'}
                     <span className="text-black group-hover:translate-x-1 transition-transform duration-150">→</span>
@@ -234,7 +239,7 @@ export default function Contact() {
       </div>
 
       {/* Footer: Full width, sits at the very bottom edge */}
-      <div className="w-full shrink-0 relative z-10">
+      <div className="w-full relative z-10 mt-auto">
         <Footer />
       </div>
     </div>

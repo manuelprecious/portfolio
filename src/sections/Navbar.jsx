@@ -104,8 +104,8 @@ export default function Navbar() {
           {/* Availability Badge (Visible on md and up) */}
           <div className="hidden md:flex items-center gap-2.5 text-[10px] text-zinc-300 font-bold uppercase tracking-widest border border-zinc-800 bg-zinc-900/50 px-3.5 py-1.5 rounded-full shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff9500]"></span>
             </span>
             Research Ongoing
           </div>
@@ -158,8 +158,8 @@ export default function Navbar() {
             {/* Status Indicator inside menu drawer */}
             <div className="mb-6 flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-xl font-mono text-[10px] tracking-wider text-zinc-300 font-bold uppercase select-none shadow-sm self-start">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff9500]"></span>
               </span>
               Research Ongoing
             </div>
