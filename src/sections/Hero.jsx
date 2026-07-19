@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import KineticText from '../components/KineticText';
-import Button from '../components/Button';
+// import Button from '../components/Button'; // Uncomment if needed
 
 // Import logos directly from your file system
 import a24Logo from '../assets/logos/a24-logo.svg';
@@ -25,34 +25,30 @@ export default function Hero() {
     section?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // FIX 1: Safely extract the string URL whether the bundler returns a string or an object
   const logos = [
-    { name: 'A24', src: a24Logo },
-    { name: 'Hayward', src: haywardLogo },
-    { name: 'Carhartt', src: carharttLogo },
-    { name: 'Giants', src: giantsLogo },
-    { name: 'Nike', src: nikeLogo },
-    { name: 'A24', src: a24Logo },
-    { name: 'Hayward', src: haywardLogo },
-    { name: 'Carhartt', src: carharttLogo },
-    { name: 'Giants', src: giantsLogo },
-    { name: 'Nike', src: nikeLogo }
+    { name: 'A24', src: a24Logo?.src || a24Logo },
+    { name: 'Hayward', src: haywardLogo?.src || haywardLogo },
+    { name: 'Carhartt', src: carharttLogo?.src || carharttLogo },
+    { name: 'Giants', src: giantsLogo?.src || giantsLogo },
+    { name: 'Nike', src: nikeLogo?.src || nikeLogo }
   ];
 
   // Helper component for the water bubble highlight effect
   const HighlightedText = ({ text }) => (
     <span style={{ 
       display: 'inline-block', 
-      background: 'rgba(255, 255, 255, 0.08)', // Subtle glassy tint
-      backdropFilter: 'blur(8px)', // Frosted glass effect
+      background: 'rgba(255, 255, 255, 0.08)',
+      backdropFilter: 'blur(8px)',
       WebkitBackdropFilter: 'blur(8px)',
       borderRadius: '8px', 
       padding: '4px 12px', 
-      margin: '6px 4px', // Added vertical spacing (6px top/bottom)
-      border: '1px solid rgba(255, 255, 255, 0.15)', // Subtle glass border
-      borderBottom: '2px solid rgba(255, 149, 0, 0.8)', // Colored bottom line (orange)
+      margin: '6px 4px',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      borderBottom: '2px solid rgba(255, 149, 0, 0.8)',
       fontWeight: '500',
-      color: '#ffffff', // White text for contrast against dark background
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)', // Slight lift for bubble effect
+      color: '#ffffff',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
       transition: 'all 0.3s ease'
     }}>
       {text}
@@ -90,11 +86,7 @@ export default function Hero() {
 
         {/* Left Column: Typography Stack */}
         <div className="lg:col-span-6 flex flex-col items-start w-full">
-          
-          {/* Content Block - Completely Transparent */}
           <div className="relative w-full bg-transparent rounded-2xl p-3 sm:p-4">
-            
-            {/* Content */}
             <div className="relative z-10 p-5 lg:p-6">
               <KineticText className="text-[11px] uppercase tracking-[0.3em] mb-2 lg:mb-6">
                 <span className="bg-white/90 text-black font-bold px-2 py-0.5 rounded">research // products // engineering</span>
@@ -119,10 +111,7 @@ export default function Hero() {
                   onClick={scrollToWork}
                   className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-mono text-sm font-bold uppercase tracking-widest rounded-lg border-2 border-white shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] hover:bg-zinc-100 transition-all duration-300 overflow-hidden"
                 >
-                  {/* Shimmer effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  
-                  {/* Content */}
                   <span className="relative z-10 flex items-center gap-3">
                     <span className="w-2.5 h-2.5 bg-black rounded-full group-hover:animate-pulse" />
                     Browse Projects
@@ -137,7 +126,6 @@ export default function Hero() {
         {/* Right Column: NLE Showreel Console Block */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full pb-4 lg:pb-0">
           <div className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-none bg-black/50 backdrop-blur-sm border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] rounded-xl p-3 sm:p-4 select-none">
-
             <div className="bg-black/60 border border-white/10 rounded-lg overflow-hidden w-full">
               {/* NLE Window Header bar */}
               <div className="bg-black/70 px-4 py-3 flex items-center justify-between border-b border-white/10">
@@ -209,7 +197,6 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -217,8 +204,6 @@ export default function Hero() {
 
       {/* Infinite Logo Ticker - With Text and Increased Size */}
       <div className="w-full flex flex-col items-center justify-end mt-auto pb-2 relative z-10">
-        
-        {/* Trust Text - Using inline styles to force non-bold */}
         <p style={{ color: 'white', fontSize: '14px', fontWeight: '400', textTransform: 'uppercase', letterSpacing: '0.3em', marginBottom: '24px' }}>
           Trusted by 200+ engineering teams
         </p>
@@ -231,20 +216,40 @@ export default function Hero() {
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
           }}
         >
+          {/* FIX 2: Added `w-max` to ensure the container expands to fit all logos in a single row, 
+              allowing the -50% translation to calculate correctly for a seamless loop. */}
           <motion.div
-            className="flex gap-32 items-center whitespace-nowrap"
+            className="flex items-center whitespace-nowrap w-max"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 40, ease: "linear", repeat: Infinity }}
           >
-            {logos.map((logo, index) => (
-              <img
-                key={index}
-                src={logo.src}
-                alt={logo.name}
-                className="h-14 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
-            ))}
+            {/* First set of logos */}
+            <div className="flex items-center">
+              {logos.map((logo, index) => (
+                <div key={index} className="px-16 flex items-center">
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="h-14 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Duplicate set for seamless loop */}
+            <div className="flex items-center">
+              {logos.map((logo, index) => (
+                <div key={`dup-${index}`} className="px-16 flex items-center">
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="h-14 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
