@@ -102,7 +102,7 @@ export default function Hero() {
 
               <KineticText delay={0.2}>
                 <p className="text-sm sm:text-base lg:text-lg text-zinc-300 max-w-xl font-medium leading-relaxed mb-8 lg:mb-12">
-                  A <HighlightedText text="research" /> & <HighlightedText text="engineering" /> lab building products across <HighlightedText text="AI" />, <HighlightedText text="machine learning" />, <HighlightedText text="robotics" />, and <HighlightedText text="emerging technologies" />.
+                  A <HighlightedText text="research" /> & <HighlightedText text="engineering" /> lab building products across <HighlightedText text="AI" />, <HighlightedText text="machine learning" />, <HighlightedText text="robotics" />, and other <HighlightedText text="emerging technologies" />.
                 </p>
               </KineticText>
 
